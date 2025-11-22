@@ -1,7 +1,7 @@
 {
   "collectionName": "components_homepage_hero_banners",
   "info": {
-    "displayName": "Hero Banner"
+    "displayName": "Common Template"
   },
   "options": {},
   "attributes": {
@@ -15,7 +15,14 @@
       "type": "blocks"
     },
     "image": {
-      "type": "string"
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     },
     "buttonText": {
       "type": "string"
