@@ -26,9 +26,6 @@
     "code": {
       "type": "string"
     },
-    "image_url": {
-      "type": "string"
-    },
     "price": {
       "type": "biginteger"
     },
@@ -40,6 +37,16 @@
       "relation": "manyToOne",
       "target": "api::product-category.product-category",
       "inversedBy": "products"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }

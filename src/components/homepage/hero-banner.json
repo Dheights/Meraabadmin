@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_homepage_hero_banners",
+  "info": {
+    "displayName": "Hero Banner"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subTitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "image": {
+      "type": "string"
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "buttonLink": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

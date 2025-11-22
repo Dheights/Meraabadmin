@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_homepage_new_drops",
+  "info": {
+    "displayName": "New Drops"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subTitle": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
