@@ -2,6 +2,10 @@ import type { StrapiApp } from '@strapi/strapi/admin';
 
 export default {
   config: {
+    head: {
+      favicon: '/favicon.ico',
+      title: 'Meraab Admin',
+    },
     translations: {
       en: {
         "Auth.form.welcome.title": "Meraab Admin!",
