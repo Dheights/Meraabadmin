@@ -9,7 +9,7 @@ export default factories.createCoreController(
   ({ strapi }) => ({
 
     //----------------------------------------------------------------------
-    // FIND MANY  →  GET /api/products
+    // FIND MANY → GET /api/products
     //----------------------------------------------------------------------
     async find(ctx) {
       const shouldPopulate = ctx.query?.populate === "*";
@@ -19,15 +19,15 @@ export default factories.createCoreController(
       const data = Array.isArray(result?.data) ? result.data : [];
       const meta = result?.meta ?? {};
 
-      const cleaned = data.map((item: any) =>
-        transformItem(item, shouldPopulate)
+      const cleaned = await Promise.all(
+        data.map((item: any) => transformItem(item, shouldPopulate))
       );
 
       return { data: cleaned, meta };
     },
 
     //----------------------------------------------------------------------
-    // FIND ONE  →  GET /api/products/:id
+    // FIND ONE → GET /api/products/:id
     //----------------------------------------------------------------------
     async findOne(ctx) {
       const shouldPopulate = ctx.query?.populate === "*";
@@ -36,14 +36,14 @@ export default factories.createCoreController(
         "api::product.product",
         ctx.params.id,
         {
-          populate: shouldPopulate ? ["product_category"] : [],
+          populate: shouldPopulate ? ctx.query?.populate : [],
         }
       );
 
       if (!entity) return { data: null };
 
       return {
-        data: transformItem(entity, shouldPopulate),
+        data: await transformItem(entity, shouldPopulate),
       };
     },
 
@@ -51,10 +51,26 @@ export default factories.createCoreController(
 );
 
 //----------------------------------------------------------------------
-// Helper to clean output
+// Helper to clean output + generate signed URLs
 //----------------------------------------------------------------------
-function transformItem(product: any, includeRelations: boolean) {
+async function transformItem(product: any, includeRelations: boolean) {
   if (!product) return null;
+
+  const uploadProvider = strapi.plugin("upload").provider;
+  let signedImages: any[] = [];
+
+  if (product.images && Array.isArray(product.images)) {
+    signedImages = await Promise.all(product.images.map(async (img: any) => {
+      const signedUrl = await uploadProvider.getSignedUrl(img);
+      return {
+        id: img.id,
+        name: img.name,
+        mime: img.mime,
+        size: img.size,
+        url: signedUrl.url,
+      }
+    }));
+  }
 
   const base: any = {
     id: product.id,
@@ -63,8 +79,8 @@ function transformItem(product: any, includeRelations: boolean) {
     title: product.title,
     subTitle: product.subTitle,
     description: product.description,
+    images: signedImages,
     code: product.code,
-    imageUrl: product.image_url,
     price: product.price,
     tag: product.tag,
   };

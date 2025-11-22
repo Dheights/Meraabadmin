@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "homepages",
+  "info": {
+    "singularName": "homepage",
+    "pluralName": "homepages",
+    "displayName": "Homepage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heroBanner": {
+      "type": "component",
+      "component": "homepage.hero-banner",
+      "repeatable": true
+    },
+    "productCategories": {
+      "type": "component",
+      "component": "homepage.product-categories",
+      "repeatable": true
+    },
+    "newDrops": {
+      "type": "component",
+      "component": "homepage.new-drops",
+      "repeatable": true
+    }
+  }
+}

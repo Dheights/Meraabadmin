@@ -1,5 +1,43 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface HomepageHeroBanner extends Struct.ComponentSchema {
+  collectionName: 'components_homepage_hero_banners';
+  info: {
+    displayName: 'Hero Banner';
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.Blocks;
+    image: Schema.Attribute.String;
+    subTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface HomepageNewDrops extends Struct.ComponentSchema {
+  collectionName: 'components_homepage_new_drops';
+  info: {
+    displayName: 'New Drops';
+  };
+  attributes: {
+    image: Schema.Attribute.String;
+    subTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface HomepageProductCategories extends Struct.ComponentSchema {
+  collectionName: 'components_homepage_product_categories';
+  info: {
+    displayName: 'Product Categories';
+  };
+  attributes: {
+    image: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -65,6 +103,9 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'homepage.hero-banner': HomepageHeroBanner;
+      'homepage.new-drops': HomepageNewDrops;
+      'homepage.product-categories': HomepageProductCategories;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
