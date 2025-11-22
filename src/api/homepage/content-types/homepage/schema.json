@@ -25,6 +25,16 @@
       "type": "component",
       "component": "homepage.new-drops",
       "repeatable": true
+    },
+    "productCategoryCollection": {
+      "type": "component",
+      "component": "homepage.hero-banner",
+      "repeatable": true
+    },
+    "visitStore": {
+      "type": "component",
+      "component": "homepage.hero-banner",
+      "repeatable": true
     }
   }
 }

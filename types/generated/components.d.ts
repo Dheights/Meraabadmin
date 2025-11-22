@@ -3,13 +3,13 @@ import type { Schema, Struct } from '@strapi/strapi';
 export interface HomepageHeroBanner extends Struct.ComponentSchema {
   collectionName: 'components_homepage_hero_banners';
   info: {
-    displayName: 'Hero Banner';
+    displayName: 'Common Template';
   };
   attributes: {
     buttonLink: Schema.Attribute.String;
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.Blocks;
-    image: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     subTitle: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
@@ -21,7 +21,7 @@ export interface HomepageNewDrops extends Struct.ComponentSchema {
     displayName: 'New Drops';
   };
   attributes: {
-    image: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     subTitle: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
@@ -33,7 +33,10 @@ export interface HomepageProductCategories extends Struct.ComponentSchema {
     displayName: 'Product Categories';
   };
   attributes: {
-    image: Schema.Attribute.String;
+    image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
     title: Schema.Attribute.String;
   };
 }
