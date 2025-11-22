@@ -14,6 +14,15 @@
     "name": {
       "type": "string"
     },
+    "title": {
+      "type": "string"
+    },
+    "subTitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
     "code": {
       "type": "string"
     },
@@ -22,9 +31,6 @@
     },
     "price": {
       "type": "biginteger"
-    },
-    "description": {
-      "type": "text"
     },
     "tag": {
       "type": "string"

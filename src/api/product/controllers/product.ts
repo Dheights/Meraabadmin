@@ -60,10 +60,12 @@ function transformItem(product: any, includeRelations: boolean) {
     id: product.id,
     documentId: product.documentId,
     name: product.name,
+    title: product.title,
+    subTitle: product.subTitle,
+    description: product.description,
     code: product.code,
     imageUrl: product.image_url,
     price: product.price,
-    description: product.description,
     tag: product.tag,
   };
 
