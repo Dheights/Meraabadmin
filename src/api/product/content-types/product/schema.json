@@ -23,6 +23,22 @@
     "description": {
       "type": "blocks"
     },
+    "artisanProfileTitle": {
+      "type": "string"
+    },
+    "artisanProfileDescription": {
+      "type": "blocks"
+    },
+    "artisanProfileImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
     "code": {
       "type": "string"
     },
