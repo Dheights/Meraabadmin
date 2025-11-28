@@ -3,6 +3,12 @@ import { overrideAdminTitle } from './extensions/header';
 
 export default {
   config: {
+    menu: {
+      logo: '/logo.png',
+    },
+    auth: {
+      logo: '/logo.png',
+    },
     // Translation overrides (login page text)
     translations: {
       en: {
