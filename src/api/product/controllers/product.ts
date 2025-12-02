@@ -72,6 +72,17 @@ async function transformItem(product: any, includeRelations: boolean) {
     }));
   }
 
+  if (product.artisanProfileImage) {
+    const signedUrl = await uploadProvider.getSignedUrl(product.artisanProfileImage);
+    product.artisanProfileImage = {
+      id: product.artisanProfileImage.id,
+      name: product.artisanProfileImage.name,
+      mime: product.artisanProfileImage.mime,
+      size: product.artisanProfileImage.size,
+      url: signedUrl.url,
+    }
+  }
+
   const base: any = {
     id: product.id,
     documentId: product.documentId,
@@ -80,6 +91,9 @@ async function transformItem(product: any, includeRelations: boolean) {
     subTitle: product.subTitle,
     description: product.description,
     images: signedImages,
+    artisanProfileTitle: product.artisanProfileTitle,
+    artisanProfileDescription: product.artisanProfileDescription,
+    artisanProfileImage: product.artisanProfileImage,
     code: product.code,
     price: product.price,
     tag: product.tag,
