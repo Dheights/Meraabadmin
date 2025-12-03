@@ -5,8 +5,10 @@
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string"
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
     },
     "image": {
       "type": "media",

@@ -8,8 +8,10 @@
     "title": {
       "type": "string"
     },
-    "subTitle": {
-      "type": "string"
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
     },
     "image": {
       "type": "media",

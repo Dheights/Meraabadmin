@@ -6,10 +6,10 @@ export interface HomepageHeroBanner extends Struct.ComponentSchema {
     displayName: 'Common Template';
   };
   attributes: {
-    buttonLink: Schema.Attribute.String;
-    buttonText: Schema.Attribute.String;
+    category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
     description: Schema.Attribute.Blocks;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    product: Schema.Attribute.Relation<'oneToOne', 'api::product.product'>;
     subTitle: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
@@ -21,8 +21,8 @@ export interface HomepageNewDrops extends Struct.ComponentSchema {
     displayName: 'New Drops';
   };
   attributes: {
+    category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    subTitle: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
 }
@@ -33,11 +33,11 @@ export interface HomepageProductCategories extends Struct.ComponentSchema {
     displayName: 'Product Categories';
   };
   attributes: {
+    category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
     image: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
-    title: Schema.Attribute.String;
   };
 }
 

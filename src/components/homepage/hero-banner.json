@@ -24,11 +24,15 @@
         "audios"
       ]
     },
-    "buttonText": {
-      "type": "string"
+    "product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product"
     },
-    "buttonLink": {
-      "type": "string"
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
     }
   },
   "config": {}
