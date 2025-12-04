@@ -543,19 +543,14 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   };
   attributes: {
     artisanProfileDescription: Schema.Attribute.Blocks;
-    artisanProfileImage: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
+    artisanProfileImage: Schema.Attribute.Media<'images'>;
     artisanProfileTitle: Schema.Attribute.String;
     code: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Blocks;
-    images: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
+    images: Schema.Attribute.Media<'images', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

@@ -8,7 +8,7 @@ export interface HomepageHeroBanner extends Struct.ComponentSchema {
   attributes: {
     category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
     description: Schema.Attribute.Blocks;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image: Schema.Attribute.Media<'images'>;
     product: Schema.Attribute.Relation<'oneToOne', 'api::product.product'>;
     subTitle: Schema.Attribute.String;
     title: Schema.Attribute.String;
@@ -22,7 +22,7 @@ export interface HomepageNewDrops extends Struct.ComponentSchema {
   };
   attributes: {
     category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String;
   };
 }
@@ -34,10 +34,7 @@ export interface HomepageProductCategories extends Struct.ComponentSchema {
   };
   attributes: {
     category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
-    image: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
+    image: Schema.Attribute.Media<'images', true>;
   };
 }
 
