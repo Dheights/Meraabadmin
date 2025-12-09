@@ -30,11 +30,6 @@
       "type": "component",
       "component": "homepage.hero-banner",
       "repeatable": true
-    },
-    "visitStore": {
-      "type": "component",
-      "component": "homepage.hero-banner",
-      "repeatable": true
     }
   }
 }

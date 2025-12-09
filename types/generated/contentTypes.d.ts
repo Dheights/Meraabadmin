@@ -496,7 +496,6 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    visitStore: Schema.Attribute.Component<'homepage.hero-banner', true>;
   };
 }
 
